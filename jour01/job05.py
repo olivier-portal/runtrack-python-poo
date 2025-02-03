@@ -15,14 +15,17 @@ class Point:
     def changer_x(abscisse):
         x = input(f"Entrez une nouvelle abscisse de {abscisse.x}: ")
         print(f"la nouvelle abscisse du point est {x}")
+        return x
         
     def changer_y(ordonee):
         y = input(f"Entrez une nouvelle abscisse de {ordonee.y}: ")
         print(f"la nouvelle ordonnée du point est {y}")
-        
-Point().afficher_les_points()
-Point().afficher_x()
-Point().afficher_y()
-Point().changer_x()
-Point().changer_y()
+        return y
+
+point1 = Point()        
+point1.afficher_les_points()
+point1.afficher_x()
+point1.afficher_y()
+point1.changer_x()
+point1.changer_y()
 
