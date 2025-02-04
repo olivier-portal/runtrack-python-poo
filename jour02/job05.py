@@ -47,10 +47,10 @@ class Voiture:
     def demarrer(self):
         if self.__verifier_plein() > 5:
             self.__en_marche = True
-            return f"Votre {self.__marque} {self.__modèle} peut démarrer"
+            return f"\nVotre {self.__marque} {self.__modèle} de l'année {self.__année} avec un kilométrage de {self.__kilométrage}km dont le niveau d'essance est de {self.__reservoir} litres peut démarrer"
         else:
             self.__en_marche = False
-            return f"Votre {self.__marque} {self.__modèle} ne peut pas démarrer"
+            return f"\nVotre {self.__marque} {self.__modèle} de l'année {self.__année} avec un kilométrage de {self.__kilométrage}km dont le niveau d'essance est de {self.__reservoir} litres ne peut pas démarrer"
             
     def arreter(self):
         self.__en_marche = False
@@ -60,8 +60,11 @@ class Voiture:
     
 ma_voiture = Voiture("Nissan", "Juke", 2022, 122000)
 
-print(ma_voiture.get_reservoir())
 print(ma_voiture.demarrer())
 
-print(ma_voiture.set_reservoir(4))
+ma_voiture.set_reservoir(4)
+ma_voiture.set_marque("Renault")
+ma_voiture.set_modèle("Scenic")
+ma_voiture.set_année(2003)
+ma_voiture.set_kilométrage(459000)
 print(ma_voiture.demarrer())
