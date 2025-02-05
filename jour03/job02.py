@@ -1,6 +1,6 @@
 class CompteBancaire:
-    def __init__(self):
-        self.__numero_compte = 1234
+    def __init__(self, numero_compte):
+        self.__numero_compte = numero_compte
         self.__nom = "Doe"
         self.__prenom = "John"
         self.__solde = 1000
@@ -42,8 +42,17 @@ class CompteBancaire:
         else:
             return self.__solde
         
+    def virement(self, destinataire, montant):
+        if self.__solde >= montant:
+            self.__solde -= montant
+            destinataire.__solde += montant
+            print(f"Vous venez de faire un virement de {montant}€ au compte {destinataire.__numero_compte}")
+
+        else:
+            print(f"Vous ne pouvez pas faire de virement sur le compte {self.__numero_compte}, le montant de {montant}€ est supérieur à votre solde de {self.__solde}€")
         
-mon_compte = CompteBancaire()
+        
+mon_compte = CompteBancaire(1234)
 
 mon_compte.afficher_solde()
 
@@ -58,5 +67,14 @@ mon_compte.versement(150)
 mon_compte.afficher_solde()
 mon_compte.retrait(1300)
 mon_compte.afficher_solde()
-mon_compte.retrait(10)
+mon_compte.versement(1500)
 mon_compte.afficher_solde()
+
+mon_compte2 = CompteBancaire(12345)
+mon_compte2.autorisation_decouvert(True)
+mon_compte2.retrait(2100)
+mon_compte2.afficher_solde()
+
+mon_compte.virement(mon_compte2, 1155)
+mon_compte.afficher_solde()
+mon_compte2.afficher_solde()
