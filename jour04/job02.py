@@ -8,7 +8,7 @@ class Personne:
     def bonjour(self):
         print("Hello")
         
-    def mofifier_age(self, age):
+    def modifier_age(self, age):
         self.age = age
         
 
@@ -31,14 +31,13 @@ class Professeur(Personne):
     def enseigner(self):
         print(f"Le cours de {self.__matière_enseignee} va commencer")
         
-personne1 = Personne()
-personne1.mofifier_age(18)
-personne1.afficher_age()
-personne1.bonjour()
-
 eleve1 = Eleve()
-eleve1.mofifier_age(12)
+eleve1.bonjour()
+eleve1.allerEnCours()
+eleve1.modifier_age(15)
 eleve1.afficher_age()
 
 professeur1 = Professeur()
+professeur1.bonjour()
+professeur1.modifier_age(40)
 professeur1.enseigner()
